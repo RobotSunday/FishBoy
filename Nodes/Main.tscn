@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/Base pack/Tiles/dirt.png" type="Texture" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 508.393, 29.6699 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 506.402, 477.662 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 516.105, 562.294 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 4.99658, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Floor"]
+position = Vector2( 6.17358, 1 )
+scale = Vector2( 14.5176, 1 )
+texture = ExtResource( 2 )
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 852.259, 513.062 )
